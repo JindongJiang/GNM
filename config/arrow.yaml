@@ -1,0 +1,97 @@
+summary_dir: './summary/arrow-summary'
+model_dir: './summary/arrow-model'
+last_ckpt: ''
+
+data:
+  inp_channel: 3
+  blender_dir_list_train: [
+    './data/point-out-the-wrong-guy-split/split-00000-20000/',
+    './data/point-out-the-wrong-guy-split/split-20000-40000/',
+    './data/point-out-the-wrong-guy-split/split-40000-60000/',
+  ]
+  blender_dir_list_test: [
+    './data/point-out-the-wrong-guy-split/split-60000-80000/']
+  dataset: 'blender'
+z:
+  z_global_dim: 32
+  z_what_dim: 64
+
+arch:
+  glimpse_size: 64
+  phase_background: True
+  phase_overlap: True
+  img_enc_dim: 128
+  draw_step: 4
+  conv:
+    img_encoder_filters: [16, 16, 32, 32, 64, 64, 128, 128, 128]
+    p_what_decoder_filters: [128, 64, 32, 16, 8, 4]
+    p_what_decoder_kernel_sizes: [3, 3, 3, 3, 3, 3]
+    p_what_decoder_upscales: [2, 2, 2, 2, 2, 2]
+    p_what_decoder_groups: [1, 1, 1, 1, 1, 1]
+  mlp:
+    p_global_decoder_filters: [512, 1024, 2048]
+    q_global_encoder_filters: [512, 512, 64]
+    p_global_encoder_filters: [512, 512, 64]
+  pwdw:
+    pwdw_filters: [128, 128]
+    pwdw_kernel_sizes: [1, 1]
+    pwdw_strides: [1, 1]
+    pwdw_groups: [1, 1]
+
+  structdraw:
+    rnn_decoder_hid_dim: 128
+    rnn_encoder_hid_dim: 128
+    hid_to_dec_filters: [128]
+
+const:
+  scale_mean: -1.5
+  likelihood_sigma: 0.2
+
+log:
+  print_step_freq: 2000
+
+train:
+  epoch: 600
+  beta_global_anneal_start_step: 0
+  beta_global_anneal_end_step: 100000
+  beta_global_anneal_start_value: 0.
+  beta_global_anneal_end_value: 1.
+
+  beta_pres_anneal_start_step: 0
+  beta_pres_anneal_end_step: 0
+  beta_pres_anneal_start_value: 1.
+  beta_pres_anneal_end_value: 1.
+
+  beta_where_anneal_start_step: 0
+  beta_where_anneal_end_step: 0
+  beta_where_anneal_start_value: 1.
+  beta_where_anneal_end_value: 1.
+
+  beta_what_anneal_start_step: 0
+  beta_what_anneal_end_step: 0
+  beta_what_anneal_start_value: 1.
+  beta_what_anneal_end_value: 1.
+
+  beta_depth_anneal_start_step: 0
+  beta_depth_anneal_end_step: 0
+  beta_depth_anneal_start_value: 1.
+  beta_depth_anneal_end_value: 1.
+
+  beta_aux_bg_anneal_start_step: 0
+  beta_aux_bg_anneal_end_step: 50000
+  beta_aux_bg_anneal_start_value: 50.
+  beta_aux_bg_anneal_end_value: 1.
+
+  beta_aux_where_anneal_start_step: 0
+  beta_aux_where_anneal_end_step: 500
+  beta_aux_where_anneal_start_value: 10.
+  beta_aux_where_anneal_end_value: 1.
+
+  tau_pres_anneal_start_step: 1000
+  tau_pres_anneal_end_step: 20000
+  tau_pres_anneal_start_value: 1.
+  tau_pres_anneal_end_value: 0.5
+
+  phase_bg_alpha_curriculum: True
+  bg_alpha_curriculum_period: [0, 500]
+  bg_alpha_curriculum_value: 0.9

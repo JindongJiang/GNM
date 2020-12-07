@@ -1,0 +1,7 @@
+.idea/
+*.DS_Store
+.ipynb_checkpoints/
+summary/
+data/
+*.icloud
+__pycache__p

@@ -1,0 +1,53 @@
+#data_dir: '/dresden/users/jj691/Documents/Datasets/Multi-MNIST/split-left-34-right-67-size-20-num-1212-2211/'
+data_dir: './data/mnist-4/images'
+summary_dir: './summary/mnist-4-summary'
+model_dir: './summary/mnist-4-model'
+last_ckpt: ''
+
+data:
+  inp_channel: 1
+
+  dataset: 'mnist'
+
+z:
+  z_global_dim: 32
+  z_what_dim: 20
+
+arch:
+  phase_overlap: False
+  conv:
+    p_what_decoder_filters: [64, 64, 32, 16, 8, 1]
+  draw_step: 4
+  mlp:
+    q_global_encoder_filters: [512, 512, 64]
+    p_global_encoder_filters: [512, 512, 64]
+
+const:
+  scale_mean: -1.6
+  likelihood_sigma: 0.2
+
+train:
+  beta_global_anneal_start_step: 0
+  beta_global_anneal_end_step: 100000
+  beta_global_anneal_start_value: 0.
+  beta_global_anneal_end_value: 1.
+
+  beta_pres_anneal_start_step: 0
+  beta_pres_anneal_end_step: 0
+  beta_pres_anneal_start_value: 1.
+  beta_pres_anneal_end_value: 1.
+
+  beta_where_anneal_start_step: 0
+  beta_where_anneal_end_step: 0
+  beta_where_anneal_start_value: 1.
+  beta_where_anneal_end_value: 1.
+
+  beta_what_anneal_start_step: 0
+  beta_what_anneal_end_step: 0
+  beta_what_anneal_start_value: 1.
+  beta_what_anneal_end_value: 1.
+
+  beta_depth_anneal_start_step: 0
+  beta_depth_anneal_end_step: 0
+  beta_depth_anneal_start_value: 1.
+  beta_depth_anneal_end_value: 1.
