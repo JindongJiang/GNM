@@ -8,7 +8,7 @@ This is the official implementation of [Generative Neurosymbolic Machines](https
 
 ![qualitative_results](./figures/results.png)
 
-We also provide the generation samples we used to evaluate the scene structure accuracy in the paper in the `generation` directory.
+We also provide the generation samples we used to evaluate the scene structure accuracy in the paper in the [generations](generations/) directory.
 
 
 ## Dependencies
@@ -35,7 +35,7 @@ Once you download the datasets, unzip the files into the `data` directory.
 
 ## Generation with pretrained models
 
-To help you quickly get a feeling of how the code works, we provide pretrained models and a jupyter notebook to generate samples for all three datasets. These models can be downloaded from the following link. 
+To help you quickly get a feeling of how the code works, we provide pretrained models and a jupyter notebook for you to generate images for all three environments. These models can be downloaded from the following link. 
 
 * [Arrow room](https://bit.ly/36TkBQl)
 * [MNIST-10](https://bit.ly/349pbs3)
@@ -52,9 +52,9 @@ To train the model, use the following command:
 python train.py --config-file config/[configuration].yaml
 ```
 
-The configuration files for all three datasets are provide in the `config` folder. You also want to specify the GPU you use for training by setting the `CUDA_VISIBLE_DEVICES ` variable.
+The configuration files for all three datasets are provide in the `config` folder. You may also want to specify the GPU you use for training by setting the `CUDA_VISIBLE_DEVICES ` variable.
 
-The training process includes the visualization and log-likelihood computation. Note that the log-likelihood computation is only for logging, final LL value should be computed using 100 particles in importance sampling.
+The training process includes the visualization and log-likelihood computation. Note that the log-likelihood computation is only for logging, final LL value should be computed using more particles in importance sampling, we use 100 for computing the results in the paper.
 
 ## Citation
 
@@ -70,10 +70,8 @@ If you find our work useful to your research, please feel free to cite our paper
 }
 ```
 
-Thank you!
-
 ## Additional comments
 
-* We didn't fix the random seed when generating the samples, so it is very difficult to generation the exact images we provided in `generation` directory, but feel free to generate more using the pretrained models and the jupyter notebook.
+* We didn't fix the random seed when generating the samples, so it is very difficult to generation the exact same images we provided in [generations](generations/) directory, but feel free to generate more using the pretrained models and the jupyter notebook.
 * This project uses [YACS -- Yet Another Configuration System](https://github.com/rbgirshick/yacs), which is a very nice configuration library for arguments management, please also check their repo for more information.
 * The `README.md` template is partially taken from [G-SWM](https://github.com/zhixuan-lin/G-SWM) and [SCALOR](https://github.com/JindongJiang/SCALOR)
