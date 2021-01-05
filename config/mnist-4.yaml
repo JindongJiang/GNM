@@ -1,4 +1,3 @@
-#data_dir: '/dresden/users/jj691/Documents/Datasets/Multi-MNIST/split-left-34-right-67-size-20-num-1212-2211/'
 data_dir: './data/mnist-4/images'
 summary_dir: './summary/mnist-4-summary'
 model_dir: './summary/mnist-4-model'
