@@ -1,6 +1,6 @@
 ## Generative Neurosymbolic Machines (GNM)
 
-This is the official implementation of [Generative Neurosymbolic Machines](https://arxiv.org/abs/2010.12152) by [Jindong Jiang](https://www.jindongjiang.me) & [Sungjin Ahn](https://sungjinahn.com/); accepted to the *Neural Information Processing Systems* (*NeurIPS*) 2020.
+This is the official implementation of [Generative Neurosymbolic Machines](https://arxiv.org/abs/2010.12152) by [Jindong Jiang](https://www.jindongjiang.me) & [Sungjin Ahn](https://sungjinahn.com/); accepted to the *Neural Information Processing Systems* (*NeurIPS*) 2020 as a **🌟Spotlight🌟** paper.
 
 ![GNM](./figures/gnm.png)
 
