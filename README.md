@@ -64,8 +64,7 @@ If you find our work useful to your research, please feel free to cite our paper
 @article{jiang2020generative,
   title={Generative Neurosymbolic Machines},
   author={Jiang, Jindong and Ahn, Sungjin},
-  journal={Advances in Neural Information Processing Systems},
-  volume={33},
+  journal={NeurIPS},
   year={2020}
 }
 ```
