@@ -61,10 +61,11 @@ The training process includes the visualization and log-likelihood computation. 
 If you find our work useful to your research, please feel free to cite our paper:
 
 ```latex
-@inproceedings{jiang2020generative,
+@article{jiang2020generative,
   title={Generative Neurosymbolic Machines},
   author={Jiang, Jindong and Ahn, Sungjin},
-  booktitle={Proceedings of the 34th International Conference on Neural Information Processing Systems},
+  journal={Advances in Neural Information Processing Systems},
+  volume={33},
   pages={12572--12582},
   year={2020}
 }
